@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.Wifu">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="newMenu" disable="true" mnemonicParsing="false" onAction="#newMenuOnAction" text="New" />
+                  <MenuItem fx:id="openMenu" mnemonicParsing="false" onAction="#openMenuOnAction" text="Open" />
+                  <MenuItem fx:id="saveMenu" disable="true" mnemonicParsing="false" onAction="#saveMenuOnAction" text="Save" />
+                  <MenuItem fx:id="importMenu" disable="true" mnemonicParsing="false" onAction="#importMenuOnAction" text="Import" />
+              <MenuItem fx:id="closeMenu" mnemonicParsing="false" onAction="#closeMenuOnAction" text="Close" />
+            </items>
+          </Menu>
+          <Menu fx:id="editMenu" mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem fx:id="parentMenu" mnemonicParsing="false" onAction="#parentMenuOnAction" text="Parent Map" />
+                  <MenuItem fx:id="resect" disable="true" mnemonicParsing="false" onAction="#resectOnAction" text="Unspecified Action" />
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <ColorPicker fx:id="colorPicker" />
+                     </graphic>
+                  </MenuItem>
+              <MenuItem fx:id="deletMenu" disable="true" mnemonicParsing="false" onAction="#deleteMenuOnAction" text="Delete" />
+            </items>
+          </Menu>
+          <Menu fx:id="helpMenu" mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="aboutMenu" mnemonicParsing="false" onAction="#aboutMenuOnAction" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="50.0" />
+            <ComboBox fx:id="comboBox1" disable="true" onAction="#comboBox1OnAction" prefWidth="150.0" />
+            <Separator orientation="VERTICAL" prefHeight="50.0" />
+            <ListView fx:id="listView1" disable="true" onKeyPressed="#keyPressedOnActionOnListView1" onKeyReleased="#keyReleasedOnActionOnListView1" onMouseClicked="#mouseClickedOnActionOnListView1" prefHeight="200.0" prefWidth="200.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="button1" disable="true" mnemonicParsing="false" onAction="#button1OnAction" text="Button" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="50.0" />
+            <ComboBox fx:id="comboBox2" disable="true" onAction="#comboBox2OnAction" prefWidth="150.0" />
+            <Separator orientation="VERTICAL" prefHeight="50.0" />
+            <ListView fx:id="listView2" disable="true" onKeyPressed="#onKeyPressedOnListView2" onMouseClicked="#mouseClickedOnListView2" prefHeight="200.0" prefWidth="200.0" />
+            <Button fx:id="button2" disable="true" mnemonicParsing="false" onAction="#button2OnAction" text="Button" />
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <ScrollPane prefHeight="630.0" prefWidth="744.0" BorderPane.alignment="CENTER">
+         <content>
+            <Canvas fx:id="canvas" height="200.0" width="200.0" />
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

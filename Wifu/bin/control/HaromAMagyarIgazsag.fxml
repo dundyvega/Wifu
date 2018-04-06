@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.HaromControl">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="newMenu" mnemonicParsing="false" onAction="#newOnAction" text="New" />
+                  <MenuItem fx:id="saveMenu" mnemonicParsing="false" onAction="#saveOnAction" text="Save" />
+                  <MenuItem fx:id="SaveAs" mnemonicParsing="false" onAction="#saveAsOnAction" text="SaveAs" />
+                  <MenuItem fx:id="Open" mnemonicParsing="false" onAction="#openAction" text="Open" />
+                  <MenuItem fx:id="setParentMenu" mnemonicParsing="false" onAction="#parentAction" text="Parent" />
+                  <MenuItem fx:id="closeMenu" mnemonicParsing="false" onAction="#closeOnAction" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <CheckMenuItem mnemonicParsing="false">
+                     <graphic>
+                        <ColorPicker fx:id="colorPicker" />
+                     </graphic>
+                  </CheckMenuItem>
+              <MenuItem fx:id="ResizeMenu" mnemonicParsing="false" onAction="#resizeAction" text="Resize" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <Separator prefHeight="6.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Separator prefWidth="10.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Separator orientation="VERTICAL" prefHeight="40.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <left>
+            <ScrollPane prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+               <content>
+                  <GridPane prefHeight="1950.0" prefWidth="200.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0">
+                           <center>
+                              <ListView fx:id="hair_front" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="hair_front_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="hair_front_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="1">
+                           <center>
+                              <ListView fx:id="hair_back" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="hair_back_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="hair_back_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="2">
+                           <center>
+                              <ListView fx:id="head" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="head_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="head_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="3">
+                           <center>
+                              <ListView fx:id="eye_color" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="eye_color_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="eye_color_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="4">
+                           <center>
+                              <ListView fx:id="eye" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="eye_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="eye_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="5">
+                           <center>
+                              <ListView fx:id="face_back" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="face_back_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="face_back_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="6">
+                           <center>
+                              <ListView fx:id="face_front" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="face_front_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="face_front_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="8">
+                           <center>
+                              <ListView fx:id="body_front" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="body_front_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="body_front_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="7">
+                           <center>
+                              <ListView fx:id="body_back" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="body_back_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="body_back_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="9">
+                           <center>
+                              <ListView fx:id="body_front_color" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="body_front_color_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="body_front_color_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="10">
+                           <center>
+                              <ListView fx:id="legs_back" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="legs_back_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="legs_back_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="11">
+                           <center>
+                              <ListView fx:id="legs_header" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="legs_header_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="legs_header_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="12">
+                           <center>
+                              <ListView fx:id="backgroundImage" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="backgroundImage_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="backgroundImage_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                     </children>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </left>
+         <center>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <content>
+                  <Canvas fx:id="canvas" height="200.0" width="200.0" />
+               </content>
+            </ScrollPane>
+         </center>
+         <right>
+            <ScrollPane prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+               <content>
+                  <GridPane prefHeight="900.0" prefWidth="239.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0">
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button fx:id="hair_back_accessory_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="hair_back_accessory_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </top>
+                           <center>
+                              <ListView fx:id="hair_back_accessory" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="1">
+                           <center>
+                              <ListView fx:id="hair_front_accessory" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="hair_front_accessory_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="hair_front_accessory_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                           <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="2">
+                           <center>
+                              <ListView fx:id="accessory_back" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="accessory_back_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="accessory_back_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="3">
+                           <center>
+                              <ListView fx:id="accessory_front" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="accessory_front_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="accessory_front_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="4">
+                           <center>
+                              <ListView fx:id="accessory_middle_back" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="accessory_middle_back_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="accessory_middle_back_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                        <BorderPane prefHeight="800.0" prefWidth="800.0" GridPane.rowIndex="5">
+                           <center>
+                              <ListView fx:id="accessory_middle_front" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane maxHeight="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="accessory_middle_front_colored" mnemonicParsing="false" onAction="#colorButtonOnAction" prefHeight="150.0" prefWidth="150.0" />
+                                    <Button fx:id="accessory_middle_front_resize" mnemonicParsing="false" onAction="#resizeButtonOnAction" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+
+                     </children>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </right>
+      </BorderPane>
+   </center>
+</BorderPane>
