@@ -37,6 +37,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -265,6 +266,18 @@ public class WifuControlClass  implements Initializable {
 
     @FXML
     private Button body_front_colored;
+    
+    @FXML
+    private CheckBox bodyBackUp;
+
+    @FXML
+    private CheckBox eyeBackUp;
+    
+    @FXML
+    void upCheckBox(ActionEvent event) {
+
+    }
+    
     
     
     private final String[] maps = {"accessory_back", "accessory_front", "accessory_middle_back",

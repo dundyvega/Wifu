@@ -30,6 +30,16 @@
                   </CheckMenuItem>
               <MenuItem fx:id="ResizeMenu" mnemonicParsing="false" onAction="#resizeAction" text="Resize" />
                   <MenuItem fx:id="fitMenu" mnemonicParsing="false" onAction="#fitMenuOnAction" text="Fit" />
+                  <MenuItem mnemonicParsing="false" text="UpBodyFront">
+                     <graphic>
+                        <CheckBox fx:id="bodyBackUp" mnemonicParsing="false" onAction="#upCheckBox" selected="true" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" text="UpEyeColor">
+                     <graphic>
+                        <CheckBox fx:id="eyeBackUp" mnemonicParsing="false" onAction="#upCheckBox" selected="true" />
+                     </graphic>
+                  </MenuItem>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">

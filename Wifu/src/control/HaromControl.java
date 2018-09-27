@@ -37,6 +37,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -271,6 +272,20 @@ public class HaromControl  implements Initializable {
     @FXML
     private MenuItem fitMenu;
     
+    
+    @FXML
+    private CheckBox bodyBackUp;
+
+    @FXML
+    private CheckBox eyeBackUp;
+    
+    @FXML
+    void upCheckBox(ActionEvent event) {
+    	FileAdministrator.setBooleanVarables(bodyBackUp.isSelected(), eyeBackUp.isSelected());
+    	painting2();
+    }
+    
+    
     private final String[] maps = {"accessory_back", "accessory_front", "accessory_middle_back",
 			"accessory_middle_front", "backgroundImage", "body_back", "body_front",
 			"body_front_color", "eye", "eye_color", "face_back", "face_front", "hair_back",
@@ -404,6 +419,8 @@ public class HaromControl  implements Initializable {
 
     		if (equals) {
     			
+    		emtpyListNews();	
+    			
     		FileAdministrator.setContainerFile(selectedDirectory);
     		
     		setListViews();
@@ -438,7 +455,33 @@ public class HaromControl  implements Initializable {
     	
     }
 
-    @FXML
+    private void emtpyListNews() {
+		// TODO Auto-generated method stub
+    	this.hair_back_accessory.getItems().clear();
+    	this.hair_front_accessory.getItems().clear();
+    	this.accessory_back.getItems().clear();
+    	this.accessory_middle_back.getItems().clear();
+    	this.accessory_front.getItems().clear();
+    	this.accessory_middle_front.getItems().clear();
+    	this.hair_back.getItems().clear();
+    	this.hair_front.getItems().clear();
+    	this.head.getItems().clear();
+    	this.eye.getItems().clear();
+    	this.eye_color.getItems().clear();
+    	this.body_back.getItems().clear();
+    	this.body_front.getItems().clear();
+    	this.body_front_color.getItems().clear();
+    	this.legs_header.getItems().clear();
+    	this.legs_back.getItems().clear();
+    	this.face_back.getItems().clear();
+    	this.face_front.getItems().clear();
+    	this.backgroundImage.getItems().clear();
+		
+	
+	}
+
+
+	@FXML
     void resizeAction(ActionEvent event) {
 
     	

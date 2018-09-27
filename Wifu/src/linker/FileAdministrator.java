@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -96,7 +98,7 @@ public final class FileAdministrator {
 				Element rootElement = doc.createElement("Characters");
 				doc.appendChild(rootElement);
 
-				rootElement.appendChild(addNewCharacterToXML(doc, 1, 0, 0));
+				rootElement.appendChild(addNewCharacterToXML(doc, 1, 0, 0, true, true));
 				
 				
 				
@@ -123,7 +125,7 @@ public final class FileAdministrator {
 			  }
 	}
 	
-	public static Element addNewCharacterToXML(Document doc, int id, int x, int y) {
+	public static Element addNewCharacterToXML(Document doc, int id, int x, int y, boolean bodyUp, boolean eyeUp) {
 		
 		try {
 			
@@ -147,6 +149,17 @@ public final class FileAdministrator {
 			
 			staff.setAttributeNode(characterX);
 			staff.setAttributeNode(characterY);
+			
+			
+			
+			
+			Attr bodyUpT = doc.createAttribute("bodyUp");
+			bodyUpT.setValue(bodyUp + "");
+			Attr eyeUpT = doc.createAttribute("eyeUp");
+			eyeUpT.setValue(eyeUp + "");
+			
+			staff.setAttributeNode(bodyUpT);
+			staff.setAttributeNode(eyeUpT);
 			
 			
 			
@@ -239,20 +252,7 @@ public final class FileAdministrator {
 	
 			
 			
-	//---------------------------------------------------------------------------------------------------		
-			Element hair_back_accessory = doc.createElement("hair_back_accessory");
-			
-			Attr hair_back_accessoryAttr = doc.createAttribute("link");
-			hair_back_accessoryAttr.setValue("----link----");
-			hair_back_accessory.setAttributeNode(hair_back_accessoryAttr);
-			
-			
-			Attr hair_back_accessoryAttr2 = doc.createAttribute("idS");
-			hair_back_accessoryAttr2.setValue("1");
-			hair_back_accessory.setAttributeNode(hair_back_accessoryAttr2);
-			staff.appendChild(hair_back_accessory);
-			
-  //----------------------------------------------------------------------------	
+		
 			
 //---------------------------------------------------------------------------------------------------		
 			Element accessory_back = doc.createElement("accessory_back");
@@ -542,47 +542,7 @@ public final class FileAdministrator {
 			face_front.setAttributeNode(bface_front);
 			face_front.setAttributeNode(fface_front);
 			
-			
-			Element eye_color = doc.createElement("eye_color");
-			staff.appendChild(eye_color);
-			
-			Attr eye_colorLink = doc.createAttribute("link");
-			eye_colorLink.setValue("----link----");
-			
-			Attr xeye_color = doc.createAttribute("x");
-			xeye_color.setValue("0");
-			
-			Attr yeye_color = doc.createAttribute("y");
-			yeye_color.setValue("0");
-			
-			Attr weye_color = doc.createAttribute("w");
-			weye_color.setValue("0");
-			
-			Attr heye_color = doc.createAttribute("h");
-			heye_color.setValue("0");
-			
-			Attr reye_color = doc.createAttribute("r");
-			reye_color.setValue("0");
-			
-			Attr geye_color = doc.createAttribute("g");
-			geye_color.setValue("0");
-			
-			Attr beye_color = doc.createAttribute("b");
-			beye_color.setValue("255");
-			
-			Attr feye_color = doc.createAttribute("f");
-			feye_color.setValue("0");
-			
-			eye_color.setAttributeNode(eye_colorLink);
-			eye_color.setAttributeNode(xeye_color);
-			eye_color.setAttributeNode(yeye_color);
-			eye_color.setAttributeNode(weye_color);
-			eye_color.setAttributeNode(heye_color);
-			eye_color.setAttributeNode(reye_color);
-			eye_color.setAttributeNode(geye_color);
-			eye_color.setAttributeNode(beye_color);
-			eye_color.setAttributeNode(feye_color);
-			
+	
 		
 			
 			
@@ -631,49 +591,52 @@ public final class FileAdministrator {
 			eye.setAttributeNode(feye);
 			
 			
+		
+			
+			Element eye_color = doc.createElement("eye_color");
+			staff.appendChild(eye_color);
+			
+			Attr eye_colorLink = doc.createAttribute("link");
+			eye_colorLink.setValue("----link----");
+			
+			Attr xeye_color = doc.createAttribute("x");
+			xeye_color.setValue("0");
+			
+			Attr yeye_color = doc.createAttribute("y");
+			yeye_color.setValue("0");
+			
+			Attr weye_color = doc.createAttribute("w");
+			weye_color.setValue("0");
+			
+			Attr heye_color = doc.createAttribute("h");
+			heye_color.setValue("0");
+			
+			Attr reye_color = doc.createAttribute("r");
+			reye_color.setValue("0");
+			
+			Attr geye_color = doc.createAttribute("g");
+			geye_color.setValue("0");
+			
+			Attr beye_color = doc.createAttribute("b");
+			beye_color.setValue("255");
+			
+			Attr feye_color = doc.createAttribute("f");
+			feye_color.setValue("0");
+			
+			eye_color.setAttributeNode(eye_colorLink);
+			eye_color.setAttributeNode(xeye_color);
+			eye_color.setAttributeNode(yeye_color);
+			eye_color.setAttributeNode(weye_color);
+			eye_color.setAttributeNode(heye_color);
+			eye_color.setAttributeNode(reye_color);
+			eye_color.setAttributeNode(geye_color);
+			eye_color.setAttributeNode(beye_color);
+			eye_color.setAttributeNode(feye_color);
 			
 			
-//"body_front_color_back"
 			
-			Element body_front_color = doc.createElement("body_front_color");
-			staff.appendChild(body_front_color);
 			
-			Attr body_front_colorLink = doc.createAttribute("link");
-			body_front_colorLink.setValue("----link----");
-			
-			Attr xbody_front_color = doc.createAttribute("x");
-			xbody_front_color.setValue("0");
-			
-			Attr ybody_front_color = doc.createAttribute("y");
-			ybody_front_color.setValue("0");
-			
-			Attr wbody_front_color = doc.createAttribute("w");
-			wbody_front_color.setValue("0");
-			
-			Attr hbody_front_color = doc.createAttribute("h");
-			hbody_front_color.setValue("0");
-			
-			Attr rbody_front_color = doc.createAttribute("r");
-			rbody_front_color.setValue("0");
-			
-			Attr gbody_front_color = doc.createAttribute("g");
-			gbody_front_color.setValue("0");
-			
-			Attr bbody_front_color = doc.createAttribute("b");
-			bbody_front_color.setValue("255");
-			
-			Attr fbody_front_color = doc.createAttribute("f");
-			fbody_front_color.setValue("255");
-			
-			body_front_color.setAttributeNode(body_front_colorLink);
-			body_front_color.setAttributeNode(xbody_front_color);
-			body_front_color.setAttributeNode(ybody_front_color);
-			body_front_color.setAttributeNode(wbody_front_color);
-			body_front_color.setAttributeNode(hbody_front_color);
-			body_front_color.setAttributeNode(rbody_front_color);
-			body_front_color.setAttributeNode(gbody_front_color);
-			body_front_color.setAttributeNode(bbody_front_color);
-			body_front_color.setAttributeNode(fbody_front_color);
+
 			
 			
 //"body_front_back"
@@ -729,7 +692,47 @@ public final class FileAdministrator {
 //---------------------------------------------------------------------------------------------------		
 			
 			
+//"body_front_color_back"
 			
+			Element body_front_color = doc.createElement("body_front_color");
+			staff.appendChild(body_front_color);
+			
+			Attr body_front_colorLink = doc.createAttribute("link");
+			body_front_colorLink.setValue("----link----");
+			
+			Attr xbody_front_color = doc.createAttribute("x");
+			xbody_front_color.setValue("0");
+			
+			Attr ybody_front_color = doc.createAttribute("y");
+			ybody_front_color.setValue("0");
+			
+			Attr wbody_front_color = doc.createAttribute("w");
+			wbody_front_color.setValue("0");
+			
+			Attr hbody_front_color = doc.createAttribute("h");
+			hbody_front_color.setValue("0");
+			
+			Attr rbody_front_color = doc.createAttribute("r");
+			rbody_front_color.setValue("0");
+			
+			Attr gbody_front_color = doc.createAttribute("g");
+			gbody_front_color.setValue("0");
+			
+			Attr bbody_front_color = doc.createAttribute("b");
+			bbody_front_color.setValue("255");
+			
+			Attr fbody_front_color = doc.createAttribute("f");
+			fbody_front_color.setValue("255");
+			
+			body_front_color.setAttributeNode(body_front_colorLink);
+			body_front_color.setAttributeNode(xbody_front_color);
+			body_front_color.setAttributeNode(ybody_front_color);
+			body_front_color.setAttributeNode(wbody_front_color);
+			body_front_color.setAttributeNode(hbody_front_color);
+			body_front_color.setAttributeNode(rbody_front_color);
+			body_front_color.setAttributeNode(gbody_front_color);
+			body_front_color.setAttributeNode(bbody_front_color);
+			body_front_color.setAttributeNode(fbody_front_color);			
 
 			
 			
@@ -775,6 +778,24 @@ public final class FileAdministrator {
 			hair_front.setAttributeNode(ghair_front);
 			hair_front.setAttributeNode(bhair_front);
 			hair_front.setAttributeNode(fhair_front);
+			
+			
+			
+			
+			//---------------------------------------------------------------------------------------------------		
+			Element hair_back_accessory = doc.createElement("hair_back_accessory");
+			
+			Attr hair_back_accessoryAttr = doc.createAttribute("link");
+			hair_back_accessoryAttr.setValue("----link----");
+			hair_back_accessory.setAttributeNode(hair_back_accessoryAttr);
+			
+			
+			Attr hair_back_accessoryAttr2 = doc.createAttribute("idS");
+			hair_back_accessoryAttr2.setValue("1");
+			hair_back_accessory.setAttributeNode(hair_back_accessoryAttr2);
+			staff.appendChild(hair_back_accessory);
+			
+  //----------------------------------------------------------------------------		
 			
 			
 			//---------------------------------------------------------------------------------------------------		
@@ -869,7 +890,7 @@ public final class FileAdministrator {
 		return doc.createElement("character");
 	}
 	
-	public static void addNewCharacterToXML(File filek, int x, int y) {
+	public static void addNewCharacterToXML(File filek, int x, int y, boolean body, boolean eye) {
 		try {
 			
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -890,7 +911,7 @@ public final class FileAdministrator {
 			int newId = Integer.parseInt(phone) + 1;
 			
 			doc.normalize();
-			rootElement.appendChild(addNewCharacterToXML(doc, newId, x, y));
+			rootElement.appendChild(addNewCharacterToXML(doc, newId, x, y, body, eye));
 			
 			// write the content into xml file
 			
@@ -1081,16 +1102,42 @@ public final class FileAdministrator {
 		Document doc = dBuilder.parse(torolheto);
 		
 		ArrayList<NiceImage> imgs = new ArrayList<NiceImage>();
+		boolean bodyT, eyeT, notEmptyBody, notEmptyBodyC, notEmptyEye, notEmptyEyeC;
+		
+		int imag = 0;
 		
 		for (int k = 1; k <= globalID; ++k) {
 		
 		Element myRoot = FileAdministrator.getElementByAtribute(doc, k);
 		
+		
+		
 		Element elek;
+		
+		
+
+	
+		
 		
 		String fullURL = "";
 		
 		final String constans = "----link----";
+		
+		
+		//ruha, szem felcserélésének változói
+        
+		
+		bodyT = myRoot.getAttributeNode("bodyUp").getValue().equals("true");
+		 eyeT = myRoot.getAttributeNode("eyeUp").getValue().equals("true");
+		
+		notEmptyBody = !myRoot.getChildNodes().item(11).getAttributes().getNamedItem("link").getNodeValue().equals(constans);
+		notEmptyBodyC = !myRoot.getChildNodes().item(12).getAttributes().getNamedItem("link").getNodeValue().equals(constans);
+		
+		notEmptyEye = !myRoot.getChildNodes().item(9).getAttributes().getNamedItem("link").getNodeValue().equals(constans);
+		notEmptyEyeC = !myRoot.getChildNodes().item(10).getAttributes().getNamedItem("link").getNodeValue().equals(constans);
+		
+		
+		int bag = -1, bcag = -1, eag = -1, ecag = -1;
 		
 		NodeList nList = myRoot.getChildNodes();
 		
@@ -1102,6 +1149,16 @@ public final class FileAdministrator {
 			String nezd = elek.getAttribute("link");
 			
 			if (!nezd.equals(constans)) {
+				
+				if (elek.getNodeName().equals("eye")) {
+					eag = imag;
+				} else if (elek.getNodeName().equals("eye_color")) {
+					ecag = imag;
+				} else if (elek.getNodeName().equals("body_front")) {
+					bag = imag;
+				} else {
+					bcag = imag;
+				}
 				//System.out.print("minus");
 				fullURL = "file:"+  containerFile + "/" + elek.getTagName() + "/" + nezd;
 				int x = Integer.parseInt(elek.getAttribute("x"));
@@ -1117,6 +1174,7 @@ public final class FileAdministrator {
 				img.initialize(x, y, w, h, r, g, b, f);
 				
 				imgs.add(img);
+				imag++;
 				
 				//System.out.println("megvan");
 			} else {
@@ -1140,7 +1198,7 @@ public final class FileAdministrator {
 						
 						NiceImage img = new NiceImage(fullURL, w, h, false,false, false);
 						img.initialize(x, y, w, h, r, g, b, f);
-						
+						imag++;
 						imgs.add(img);
 						
 					}
@@ -1149,8 +1207,23 @@ public final class FileAdministrator {
 					
 				}
 			}
+			
+			
 		}
+		
+		System.out.println(imag);
+		
+		if (!bodyT && (notEmptyBodyC && notEmptyBody)) {
+			Collections.swap(imgs, bag, bcag);
+
 		}
+		
+		if (!eyeT && (notEmptyEyeC && notEmptyEye)) {
+			Collections.swap(imgs, eag, ecag);
+		}
+		
+		}
+		
 		
 		return imgs;
 		
@@ -1665,6 +1738,38 @@ public final class FileAdministrator {
 				   
 				} catch (Exception ex) {}
 				return null;
+		}
+
+		public static void setBooleanVarables(boolean bodyT, boolean eyeT) {
+			// TODO Auto-generated method stub
+			setBooleanVarables(bodyT, eyeT, torolheto, globalID);
+			
+		}
+
+		private static void setBooleanVarables(boolean bodyT, boolean eyeT, File filek, int id) {
+			// TODO Auto-generated method stub
+			
+			try {
+			
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(torolheto);
+			
+			
+			Element myRoot = FileAdministrator.getElementByAtribute(doc, id);
+			myRoot.getAttributeNode("bodyUp").setValue(bodyT + "");
+			myRoot.getAttributeNode("eyeUp").setValue(eyeT + "");
+			
+			
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();;
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult result = new StreamResult(filek);
+			transformer.transform(source, result);
+			
+			} catch (Exception ex) {}
+			
+			
 		}
 		
 		
